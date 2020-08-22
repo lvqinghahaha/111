@@ -253,8 +253,79 @@ body{
     color: red;
 }
 .footercenter{
+    width:1190px;
+    height: 120px;
     padding: 40px 0;
+
 }
 .footercenter .left{
+    width:932px;
+    height: 120px;
     float: left;
+}
+.footercenter .left li{
+    float: left;
+    width: 233px;
+    height: 120px;
+}
+.footercenter .left li .title{
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.footercenter .left li p{
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+.footercenter .left li p a{
+    color: #757575;
+}
+.footercenter .right{
+    float: right;
+    width: 244px;
+    height: 120px;
+    text-align: center;
+    border-left: 1px solid #ccc;
+}
+.footercenter .right .phone{
+    color: #cf211b;
+    font-size: 22px;
+}
+.footercenter .right .time{
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.footercenter .right a{
+    display: block;
+    font-size: 12px;
+    color: #cf211b;
+    width: 118px;
+    height: 28px;
+    line-height: 30px;
+    border: 1px solid #cf211b;
+    margin: 0 auto;
+}
+.footerbottom{
+    width: 1190px;
+    height: 45px;
+    padding: 10px 0;
+    background-color: pink;
+}
+.footerbottom .shopname{
+    width: 320px;
+    height: 45px;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footerbottom .shopname ul li{
+    float: left;
+}
+.footerbottom .shopname a{
+    border-right:1px #000 solid ;
+    padding: 0 10px;
+    font-size: 12px;
+    color: #222;
+    /* display: block; */
 }

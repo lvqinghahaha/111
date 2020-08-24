@@ -8,7 +8,8 @@
     <!-- <script src="js/require.js" defer async = "true" data-main = "js/main"></script> -->
     <script src="jquery-1.11.3.js"></script>
     <script src="index.json"></script>
-    <script>
+    <script src="index.js"></script>
+    <!-- <script>
         $(function(test){
             console.log(test)
             // var oContent = document.getElementById("content")
@@ -40,7 +41,7 @@
             }
             $("content").html(newContent);
         })
-    </script>
+    </script> -->
 </head>
 <body>
     <!-- topnav -->
@@ -86,54 +87,97 @@
             <div class = "headersearch">
                 <form action="">
                     <input type="text" placeholder="输入商品名称搜索" class="searchtext">
-                    <input type="submit" class="searchbtn">
+                    <img src="images/008af9d8faff1f06524e31a5cd1c0db.png" alt="" class="searchbtn">
                 </form>
             </div>
         </div>
     </div>
-    <div class="contentbox">
+    <div class="bannerbox">
         <!-- banner -->
-        <div class="banner">
-            <img src="images/img_5ede25c52d40d.jpg" alt="">
-            <div class="select">
-                <div class="dots">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+        <div class="banner" id="banner">
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="images/img_5d12161e5a986.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5ede25c52d40d.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5cecfedf1c93e.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5cd3f9fc0916d.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5e58ebf04fd6b.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5e58eb98b65f1.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5d12161e5a986.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5ede25c52d40d.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+            <div class="dots">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
+            <div class="left"><</div>
+            <div class="right">></div>
         </div>
+    </div>
         <!-- content -->
 
-        <div id="content">
-            <!-- <h1>
-                激光电视
-                <a href="">查看更多&gt;&gt;</a>
-            </h1>
-            <div>
-                <a href="">
-                    <img src="images/s3.jpg" alt="">
-                </a>
-                <a href="" class="shopbox">
-                    <div class="shop">
-                        <img src="images/img_5c9b3891c1061.jpg" alt="">
-                        <h4>电视名</h4>
-                        <span>介绍</span>
-                        <p>
-                            <span>现价</span>
-                            <span>原价</span>
-                        </p>
-                    </div>
-                </a>
+    <div class="contentbox">
+            <!-- <div id="content">
+                <h1>
+                    激光电视
+                    <a href="">查看更多&gt;&gt;</a>
+                </h1>
+                <div>
+                    <a href="">
+                        <img src="images/s3.jpg" alt="">
+                    </a>
+                    <a href="" class="shopbox">
+                        <div class="shop">
+                            <img src="images/img_5c9b3891c1061.jpg" alt="">
+                            <h4>电视名</h4>
+                            <span>介绍</span>
+                            <p>
+                                <span>现价</span>
+                                <span>原价</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
             </div> -->
-            
-        </div>
-        <div class="contentbottom">
-            <h1>获奖项目</h1>
-            <img src="images/jiang.png" alt="">
-        </div>
+            <div class="contentbottom">
+                <h1>获奖项目</h1>
+                <img src="images/jiang.png" alt="">
+            </div>
     </div>
     <!-- footer -->
     <div class="footerbox">

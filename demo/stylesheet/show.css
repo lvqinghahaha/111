@@ -70,6 +70,7 @@ body{
 }
 /* header */
 .headerbox{
+    position: relative;
     z-index: 2;
     box-shadow: 0 0 5px #ccc;
 }
@@ -257,7 +258,6 @@ body{
     width: 555px;
     height: 48px;
     padding: 16px 0;
-    background-color: pink;
     border-bottom: 1px dashed #E2E2E2;
 }
 .shopbox .shop .right .btnbox a{
@@ -266,7 +266,10 @@ body{
     display: inline-block;
     border-radius: 3px;
     text-align: center;
+    line-height: 48px;
     cursor: pointer;
+    color: #fff;
+    font-size: 16px;
 }
 .shopbox .shop .right .btnbox a:nth-child(1){
     background-color: #ff9802;
@@ -274,4 +277,18 @@ body{
 .shopbox .shop .right .btnbox a:nth-child(2){
     background-color: #cf1d1b;
     margin-left: 10px;
+}
+.shopbox .shop .right ul{
+    width: 100%;
+    padding: 20px 0;
+}
+.shopbox .shop .right ul li{
+    float: left;
+    margin-right: 50px;
+}
+.shopbox .shop .right ul li a{
+    color: #333;
+}
+.shopbox .shop .right ul li a:hover{
+    color: red;
 }

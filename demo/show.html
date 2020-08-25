@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="stylesheet/show.css">
+    <script src="jquery-1.11.3.js"></script>
+    <script src="show.js"></script>
 </head>
 <body>
     <!-- topnav -->
@@ -50,7 +52,7 @@
             <div class = "headersearch">
                 <form action="">
                     <input type="text" placeholder="输入商品名称搜索" class="searchtext">
-                    <input type="submit" class="searchbtn">
+                    <img src="images/008af9d8faff1f06524e31a5cd1c0db.png" alt="" class="searchbtn">
                 </form>
             </div>
         </div>
@@ -58,7 +60,13 @@
     <div class="shopbox">
         <div class="shop">
             <div class="left">
-                <div class="lefttop"><img src="https://img0.jmgo.com/images/202003/goods_img/696_P_1585527019534.jpg" alt=""></div>
+                <div class="lefttop" id="lefttop">
+                    <img src="images/696_P_1585527019534.jpg" alt="">
+                    <div class="dark" id="dark"></div>
+                </div>
+                <div class="big" id="big">
+                    <img src="images/696_P_1585527019534.jpg" alt="" >
+                </div>
                 <div class="leftbottom">
                     <ul>
                         <li></li>

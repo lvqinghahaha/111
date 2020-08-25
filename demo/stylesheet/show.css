@@ -92,7 +92,6 @@ body{
 .header .headernav ul{
     width: 700px;
     margin-top: 0px;
-    /* padding-left: 30px; */
     display: flex;
     justify-content: space-between;
 }
@@ -123,16 +122,13 @@ body{
 }
 .header .headersearch .searchbtn{
     position: absolute;
-    top: 0;
+    top: 1px;
     right: 0px;
     width: 40px;
-    height: 40px;
-    color: #616161;
-    background-color: transparent;
+    height: 38px;
     border: none;
     border-left: 1px solid #e0e0e0;
     cursor: pointer;
-    /* transition: all .2s; */
     font-size: 20px;
     text-align: center;
 }
@@ -140,7 +136,7 @@ body{
     background: #fff;
     width: 100%;
     height: 682px;
-    /* overflow: hidden; */
+    overflow: hidden;
     padding-top: 30px;
     padding-bottom: 10px;
 }
@@ -148,17 +144,51 @@ body{
     width: 1142px;
     height: 612px;
     margin: 0 auto;
-    /* overflow: hidden; */
+    overflow: hidden;
     margin-top: 30px;
 }
 .shopbox .shop .left{
     float: left;
     width: 500px;
     height: 600px;
+    position: absolute;
 }
-.shopbox .shop .left img{
+.shopbox .shop .left .lefttop{
     width: 500px;
     height: 500px;
+    border: 1px solid #eee;
+}
+.shopbox .shop .left img{
+    width: 100%;
+    height: 100%;
+}
+.shopbox .shop .left .lefttop .dark{
+    display: none;
+    width: 200px; 
+    height: 200px; 
+    background-color: #ccc; 
+    opacity: 0.5; 
+    position: absolute; 
+    left: 0px; 
+    top: 0px;
+}
+.shopbox .shop .left .big{
+    width: 400px; 
+    height: 400px; 
+    border: 1px solid black ; 
+    position: absolute; 
+    left: 560px; 
+    top: 0px; 
+    display: none; 
+    overflow: hidden;
+    z-index: 2;
+}
+.shopbox .shop .left .big img{
+    width: 1000px; 
+    height: 1000px;
+    position: absolute; 
+    z-index: 3;
+    
 }
 .shopbox .shop .left .leftbottom li{
     float: left;
@@ -167,6 +197,7 @@ body{
     text-align: center;
     cursor: pointer;
     margin-right: 17px;
+    margin-top: 10px;
     border: 1px solid #CCC;
 }
 

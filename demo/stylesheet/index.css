@@ -105,6 +105,9 @@ body{
     padding: 20px 25px 10px;
     
 }
+.header .headernav ul a:hover{
+    color: red;
+}
 .header .headersearch{
     width: 300px;
     height: 40px;
@@ -131,6 +134,46 @@ body{
     cursor: pointer;
     font-size: 20px;
     text-align: center;
+}
+.navlistbox{
+    width: 1263px;
+    height: 231px;
+    /* display: none; */
+}
+.navlistbox .navlist{
+    position: relative;
+    width: 1190px;
+    margin: 0 auto;
+}
+.navlistbox .navlist ul{
+    font-size: 12px;
+    margin-left: 130px;
+}
+.navlistbox .navlist ul li{
+    position: relative;
+    float: left;
+    width: 150px;
+    height: 160px;
+    padding: 40px 12px 0px 12px;
+    text-align: center;
+}
+.navlistbox .navlist ul li div{
+    width: 160px;
+    height: 110px;
+    margin: 0 auto 10px;
+    border-right: 1px solid #ccc;
+}
+.navlistbox .navlist ul li div img{
+    width: 130px;
+    height: 100px;
+    margin: 0 auto;
+}
+.navlistbox .navlist ul li .name a{
+    color: #757575;
+}
+.navlistbox .navlist ul li .price{
+    font-size: 14px;
+    color: #cf211b;
 }
 .bannerbox{
     width: 1190px;

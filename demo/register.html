@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="stylesheet/register.css">
+    <link rel="stylesheet" href="stylesheet/bootstrap.min.css">
 
 </head>
 <body>
@@ -12,15 +13,57 @@
     <div class="registerbox">
         <span>X</span>
         <p class="title">注册JmGO账号</p>
-        <div class="register">
-            <input type="text" class="phone" placeholder="手机号">
-            <input type="password" class="password" placeholder="密码">
-            <input type="password" class="password" placeholder="确认密码">
+        <div class="form-group">
+            <input type="text" name="phone" placeholder="手机号">
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" placeholder="密码">
+        </div>
+        <div class="form-group">
+            <input type="password" name="repassword" placeholder="确认密码">
         </div>
         <input type="checkbox" name="" id="check">
         <p class="read">我已阅读并接受<a href="">《JmGO用户协议》</a></p>
-        <input type="submit" class="btn" value="注册">
+        <button class="btn" id="btn1">注册</button>
+        <div id = 'alert' class="alert alert-danger" role="alert">...</div>
         <div class="bottom"><a href="http://127.0.0.1:5500/gitdemo/demo/login.html">登录账号</a></div>
     </div>
 </body>
+<script type="module">
+    import { $_ajax } from "./ajax.js";
+    var oBtn = document.getElementById("btn1");
+    var aInputs = document.querySelectorAll(".form-group input");
+    var oAlert = document.getElementById("alert");
+    oBtn.onclick = function () {
+      $_ajax({
+        type: "post",
+        url: "register.php",
+        data: {
+          phone: aInputs[0].value,
+          password: aInputs[1].value,
+          // repassword: aInputs[2].value,
+          createtime: new Date().getTime(),
+        },
+        
+      })
+        .then((res) => {
+          var obj = JSON.parse(res);
+
+          if(obj.code){
+            oAlert.className = 'alert alert-danger';
+          }else{
+            oAlert.className = 'alert alert-success';
+            setTimeout(() => {
+              location.assign("login.html");
+            }, 500);
+          }
+          oAlert.style.display = 'block';
+          oAlert.innerHTML = obj.msg;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+        
+    };
+  </script>
 </html>

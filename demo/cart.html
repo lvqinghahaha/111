@@ -4,52 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="stylesheet/index.css">
-    <!-- <script src="js/require.js" defer async = "true" data-main = "js/main"></script> -->
-    <script src="jquery-1.11.3.js"></script>
-    <script src="index.json"></script>
-    <script src="index.js"></script>
-    <script>
-        /* $(function(test){
-            console.log(test)
-            // var oContent = document.getElementById("content") */
-        $(function(){
-            $.ajax({
-            type: 'get',
-            url: "index.json",
-            success: function(arr){
-            let newContent = ''
-            for(var i = 0; i < arr.length; i++){
-                newContent +=  `
-            <h1>
-                ${arr[i].topTitle}
-                <a href="">${arr[i].a}</a>
-            </h1>
-            <div>
-                <a href="">
-                    <img src="${arr[i].leftImg}" alt="">
-                </a>
-                <a href="" class="shopbox">
-                    <div class="shop">
-                        <img src="${arr[i].img}" alt="">
-                        <h4>${arr[i].title}</h4>
-                        <span>${arr[i].decs}</span>
-                        <p>
-                            <span>${arr[i].price}</span>
-                            <span>原价</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-            
-        `
-            }
-            $("contentbox").html(newContent);
-        },error: function(msg){
-                console.log(msg);}
-            })
-    })
-    </script>
+    <link rel="stylesheet" href="stylesheet/cart.css">
+
 </head>
 <body>
     <!-- topnav -->
@@ -136,92 +92,44 @@
             </ul>
         </div>
     </div>
-    <div class="bannerbox">
-        <!-- banner -->
-        <div class="banner" id="banner">
-            <ul>
-                <li>
-                    <a href="">
-                        <img src="images/img_5d12161e5a986.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="images/img_5ede25c52d40d.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="images/img_5cecfedf1c93e.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="images/img_5cd3f9fc0916d.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="images/img_5e58ebf04fd6b.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="images/img_5e58eb98b65f1.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="images/img_5d12161e5a986.jpg" alt="">
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <img src="images/img_5ede25c52d40d.jpg" alt="">
-                    </a>
-                </li>
-            </ul>
-            <div class="dots">
-                <span class="active"></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="left"><</div>
-            <div class="right">></div>
-        </div>
-    </div>
-        <!-- content -->
-
-    <div class="contentbox">
-            <!-- <div id="content">
-                <h1>
-                    激光电视
-                    <a href="">查看更多&gt;&gt;</a>
-                </h1>
-                <div>
-                    <a href="">
-                        <img src="images/s3.jpg" alt="">
-                    </a>
-                    <a href="" class="shopbox">
-                        <div class="shop">
+    <!-- content -->
+    <div class="box">
+       <div class="content">
+            <h3>我的购物车</h3>
+            <table>
+                <tbody>
+                    <tr class="head">
+                        <td>商品</td>
+                        <td>单价</td>
+                        <td>数量</td>
+                        <td>优惠</td>
+                        <td>小计</td>
+                        <td>操作</td>
+                    </tr>
+                    <!-- <tr class="body">
+                        <td>
                             <img src="images/img_5c9b3891c1061.jpg" alt="">
-                            <h4>电视名</h4>
-                            <span>介绍</span>
-                            <p>
-                                <span>现价</span>
-                                <span>原价</span>
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div> -->
-            <div class="contentbottom">
-                <h1>获奖项目</h1>
-                <img src="images/jiang.png" alt="">
+                            <a href="">坚果SA&100英寸菲涅尔硬屏</a>
+                        </td>
+                        <td>¥27998.00元</td>
+                        <td>
+                            <div class="quantity">
+                                <div class="reduce">-</div>
+                                <div class="add">+</div>
+                                <div>1</div>
+                            </div>
+                        </td>
+                        <td>无</td>
+                        <td>¥27998.00元</td>
+                        <td><a href="">删除</a></td>
+                    </tr> -->
+                </tbody>
+            </table>
+            <div class="btn">
+                <a href="">去结算</a>
+                <a href="">继续购物</a>
             </div>
+       </div>
     </div>
     <!-- footer -->
     <div class="footerbox">

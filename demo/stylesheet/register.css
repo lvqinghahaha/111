@@ -9,7 +9,7 @@
     margin-left: -50px;
 }
 .registerbox{
-    width: 360px;
+    /* width: 360px; */
     height: 410px;
     position: fixed;
     top: 50%;
@@ -37,11 +37,11 @@
     line-height: 22px;
     font-size: 18px;
 }
-.registerbox .register{
+.registerbox .form-group{
     width: 360px;
-    height: 280px;
+    height: 100px;
 }
-.registerbox .register input{
+.registerbox .form-group input{
     width: 360px;
     height: 45px;
     /* padding: 0 10px; */
@@ -84,4 +84,11 @@
 .registerbox .bottom a{
     color:  #cf1d1b;
     text-decoration: none;
+}
+#alert{
+    margin: 0px;
+    padding: 5px;
+    text-align: center;
+    display: none;
+    margin-bottom: 5px;
 }

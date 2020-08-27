@@ -10,44 +10,94 @@
     <script src="index.json"></script>
     <script src="index.js"></script>
     <script>
-        /* $(function(test){
-            console.log(test)
-            // var oContent = document.getElementById("content") */
+        
+
+      
+        //内容数据导入
         $(function(){
             $.ajax({
             type: 'get',
             url: "index.json",
             success: function(arr){
-            let newContent = ''
+            let str =``;
             for(var i = 0; i < arr.length; i++){
-                newContent +=  `
-            <h1>
-                ${arr[i].topTitle}
-                <a href="">${arr[i].a}</a>
-            </h1>
-            <div>
-                <a href="">
-                    <img src="${arr[i].leftImg}" alt="">
-                </a>
-                <a href="" class="shopbox">
-                    <div class="shop">
-                        <img src="${arr[i].img}" alt="">
-                        <h4>${arr[i].title}</h4>
-                        <span>${arr[i].decs}</span>
-                        <p>
-                            <span>${arr[i].price}</span>
-                            <span>原价</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
+                str +=  `
+                
+                <h1>
+                    ${arr[i].topTitle}
+                    <a href="">${arr[i].a}</a>
+                </h1>
+                <div class="left">
+                    <a href="">
+                        <img src="${arr[i].leftImg}" alt="">
+                    </a>
+                    
+                </div>
+                <div class="right">
+                    <a href="" class="shopbox">
+                        <div class="shop">
+                            <img src="${arr[i].img}" alt="">
+                            <h4>${arr[i].title}</h4>
+                            <span>${arr[i].decs}</span>
+                            <p>
+                                <span>${arr[i].price}</span>
+                                <span>${arr[i].old}</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="right">
+                    <a href="" class="shopbox">
+                        <div class="shop">
+                            <img src="${arr[i].img}" alt="">
+                            <h4>${arr[i].title}</h4>
+                            <span>${arr[i].decs}</span>
+                            <p>
+                                <span>${arr[i].price}</span>
+                                <span>${arr[i].old}</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="right">
+                    <a href="" class="shopbox">
+                        <div class="shop">
+                            <img src="${arr[i].img}" alt="">
+                            <h4>${arr[i].title}</h4>
+                            <span>${arr[i].decs}</span>
+                            <p>
+                                <span>${arr[i].price}</span>
+                                <span>${arr[i].old}</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="right">
+                    <a href="" class="shopbox">
+                        <div class="shop">
+                            <img src="${arr[i].img}" alt="">
+                            <h4>${arr[i].title}</h4>
+                            <span>${arr[i].decs}</span>
+                            <p>
+                                <span>${arr[i].price}</span>
+                                <span>${arr[i].old}</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
             
         `
             }
-            $("contentbox").html(newContent);
+            $("#content").html(str);
         },error: function(msg){
                 console.log(msg);}
             })
+           /*  //头部栏
+        $(".headernav ul").mouseenter(function(){
+        $(".navlistbox").stop(true).animate({top: 0}, 500);
+      }).mouseleave(function(){
+        $(".navlistbox").stop(true).animate({bottom: 240}, 500);
+      }) */
     })
     </script>
 </head>
@@ -76,66 +126,107 @@
     </div>
     <!-- header -->
     <div class="headerbox">
-        <div class = "header">
-            <div class = "headerlogo">
-                <a href="">
-                    <img src="images/logo.png" alt="">
-                </a>
-            </div>
-            <div class="headernav">
-                <ul>
-                    <li><a href="">家庭投影</a></li>
-                    <li><a href="">移动投影</a></li>
-                    <li><a href="">激光电视</a></li>
-                    <li><a href="">行业定制</a></li>
-                    <li><a href="">坚果配件</a></li>
-                    <li><a href="">坚果服务</a></li>
-                </ul>
-            </div>
-            <div class = "headersearch">
-                <form action="">
-                    <input type="text" placeholder="输入商品名称搜索" class="searchtext">
-                    <img src="images/008af9d8faff1f06524e31a5cd1c0db.png" alt="" class="searchbtn">
-                </form>
+        <div class="bigone">
+            <div class = "header">
+                <div class = "headerlogo">
+                    <a href="">
+                        <img src="images/logo.png" alt="">
+                    </a>
+                </div>
+                <div class="side">
+                    <ul>
+                        <li class="aa">
+                            <a href="">
+                                <p>激光电视</p>
+                            </a>
+                            <div class="one">
+                                <img src="images/img_5c9b3891c1061.jpg" alt="">
+                                <img src="images/img_5bf7c6d2143dc.jpg" alt="">
+                                <img src="images/img_5bdc24648ed61.jpg" alt="">
+                                <img src="images/img_5c9b3891c1061.jpg" alt="">
+                                <img src="images/img_5bf7c6d2143dc.jpg" alt="">
+                                <img src="images/img_5bdc24648ed61.jpg" alt="">
+                            </div>
+                        </li>
+                        
+                        <li class="bb">
+                            <a href="">
+                                <p>坚果投影仪</p>
+                            </a>
+                            <div class="two">
+                                <img src="images/v10.jpg" alt="">
+                                <img src="images/v9.jpg" alt="">
+                                <img src="images/g9.jpg" alt="">
+                                <img src="images/k11.jpg" alt="">
+                                <img src="images/v10.jpg" alt="">
+                                <img src="images/j7s.png" alt="">
+                            </div>
+                        </li>
+                        <li>
+                            <a href="">
+                                <p>坚果配件</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="headernav">
+                    <ul>
+                        <li><a href="" class="headernava">家庭投影</a></li>
+                        <li><a href="">移动投影</a></li>
+                        <li><a href="">激光电视</a></li>
+                        <li><a href="">行业定制</a></li>
+                        <li><a href="">坚果配件</a></li>
+                        <li><a href="">坚果服务</a></li>
+                    </ul>
+                    <div class="navlistbox">
+                        <div class="navlist">
+                            <ul>
+                                <li>
+                                    <div><img src="images/v10.jpg" alt=""></div>
+                                    <p class="name"><a href="">坚果V10</a></p>
+                                    <p class="price">6999.00</p>
+                                </li>
+                                <li>
+                                    <div><img src="images/k11.jpg" alt=""></div>
+                                    <p class="name"><a href="">坚果K11</a></p>
+                                    <p class="price">4999.00</p>
+                                </li>
+                                <li>
+                                    <div><img src="images/g9.jpg" alt=""></div>
+                                    <p class="name"><a href="">坚果G9</a></p>
+                                    <p class="price">3499.00</p>
+                                </li>
+                                <li>
+                                    <div><img src="images/e9.jpg" alt=""></div>
+                                    <p class="name"><a href="">坚果E9</a></p>
+                                    <p class="price">4999.00</p>
+                                </li>
+                                <li>
+                                    <div><img src="images/v9.jpg" alt=""></div>
+                                    <p class="name"><a href="">坚果V9</a></p>
+                                    <p class="price">6888.00</p>
+                                </li>
+                                <li>
+                                    <div><img src="images/j7s.png" alt=""></div>
+                                    <p class="name"><a href="">坚果J7S</a></p>
+                                    <p class="price">3699.00</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class = "headersearch">
+                    <form action="">
+                        <input type="text" placeholder="输入商品名称搜索" class="searchtext">
+                        <img src="images/008af9d8faff1f06524e31a5cd1c0db.png" alt="" class="searchbtn">
+                    </form>
+                </div>
             </div>
         </div>
+        
     </div>
-    <div class="navlistbox">
-        <div class="navlist">
-            <ul>
-                <li>
-                    <div><img src="images/v10.jpg" alt=""></div>
-                    <p class="name"><a href="">坚果V10</a></p>
-                    <p class="price">6999.00</p>
-                </li>
-                <li>
-                    <div><img src="images/k11.jpg" alt=""></div>
-                    <p class="name"><a href="">坚果K11</a></p>
-                    <p class="price">4999.00</p>
-                </li>
-                <li>
-                    <div><img src="images/g9.jpg" alt=""></div>
-                    <p class="name"><a href="">坚果G9</a></p>
-                    <p class="price">3499.00</p>
-                </li>
-                <li>
-                    <div><img src="images/e9.jpg" alt=""></div>
-                    <p class="name"><a href="">坚果E9</a></p>
-                    <p class="price">4999.00</p>
-                </li>
-                <li>
-                    <div><img src="images/v9.jpg" alt=""></div>
-                    <p class="name"><a href="">坚果V9</a></p>
-                    <p class="price">6888.00</p>
-                </li>
-                <li>
-                    <div><img src="images/j7s.png" alt=""></div>
-                    <p class="name"><a href="">坚果J7S</a></p>
-                    <p class="price">3699.00</p>
-                </li>
-            </ul>
-        </div>
-    </div>
+    
     <div class="bannerbox">
         <!-- banner -->
         <div class="banner" id="banner">
@@ -196,15 +287,18 @@
         <!-- content -->
 
     <div class="contentbox">
-            <!-- <div id="content">
-                <h1>
+            <div id="content">
+                <!-- <h1>
                     激光电视
                     <a href="">查看更多&gt;&gt;</a>
                 </h1>
-                <div>
+                <div class="left">
                     <a href="">
                         <img src="images/s3.jpg" alt="">
                     </a>
+                    
+                </div>
+                <div class="right">
                     <a href="" class="shopbox">
                         <div class="shop">
                             <img src="images/img_5c9b3891c1061.jpg" alt="">
@@ -217,7 +311,46 @@
                         </div>
                     </a>
                 </div>
-            </div> -->
+                <div class="right">
+                    <a href="" class="shopbox">
+                        <div class="shop">
+                            <img src="images/img_5c9b3891c1061.jpg" alt="">
+                            <h4>电视名</h4>
+                            <span>介绍</span>
+                            <p>
+                                <span>现价</span>
+                                <span>原价</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="right">
+                    <a href="" class="shopbox">
+                        <div class="shop">
+                            <img src="images/img_5c9b3891c1061.jpg" alt="">
+                            <h4>电视名</h4>
+                            <span>介绍</span>
+                            <p>
+                                <span>现价</span>
+                                <span>原价</span>
+                            </p>
+                        </div>
+                    </a>
+                </div>
+                <div class="right">
+                    <a href="" class="shopbox">
+                        <div class="shop">
+                            <img src="images/img_5c9b3891c1061.jpg" alt="">
+                            <h4>电视名</h4>
+                            <span>介绍</span>
+                            <p>
+                                <span>现价</span>
+                                <span>原价</span>
+                            </p>
+                        </div>
+                    </a>
+                </div> -->
+            </div>
             <div class="contentbottom">
                 <h1>获奖项目</h1>
                 <img src="images/jiang.png" alt="">

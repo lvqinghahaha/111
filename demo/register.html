@@ -30,7 +30,7 @@
     </div>
 </body>
 <script type="module">
-    import { $_ajax } from "./ajax.js";
+    import {$_ajax} from "./ajax.js";
     var oBtn = document.getElementById("btn1");
     var aInputs = document.querySelectorAll(".form-group input");
     var oAlert = document.getElementById("alert");
@@ -41,7 +41,7 @@
         data: {
           phone: aInputs[0].value,
           password: aInputs[1].value,
-          // repassword: aInputs[2].value,
+          repassword: aInputs[2].value,
           createtime: new Date().getTime(),
         },
         

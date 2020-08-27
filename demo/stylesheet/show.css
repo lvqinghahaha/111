@@ -200,7 +200,9 @@ body{
     margin-top: 10px;
     border: 1px solid #CCC;
 }
-
+.shopbox .shop .left .leftbottom li:hover{
+    border-color: red;
+}
 .shopbox .shop .right{
     float: right;
     width: 555px;

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet/register1.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <title>石头科技</title>
+</head>
+<body>
+    <div class="logo">
+        <div class="img-logo"><a href=""><img src="images/logo.png" alt=""></a></div>
+        <div class="text-logo"><a href="">石头科技</a></div>
+    </div>
+    <div class="nav">
+        <div class="text-center">
+            <div class="register">
+                <div class="label">账号注册</div>
+                <div class="form-group">
+                    <input type="text" class="input-item" name="username" placeholder="请输入账号">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="input-item" name="password" placeholder="请输入密码">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="input-item" name="repassword" placeholder="请再次输入密码">
+                </div>
+                <div id = 'alert' class="alert alert-danger" role="alert">...</div>
+                <button class="register-btn" id="btn1">确定</button>
+                <div class="other">
+                    <!-- <a href="http://localhost/shitouguanwang/kewosi/denglv.html" class="other-a">已有账号？去登录</a> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script type="module">
+    import {$_ajax,showTime} from "./ajax.js";
+    var oBtn = document.getElementById("btn1");
+    var aInputs = document.querySelectorAll(".form-group input");
+    var oAlert = document.getElementById("alert");
+    oBtn.onclick = function (){
+        $_ajax({
+            type:"post",
+            url:"register.php",
+            data: {
+                username: aInputs[0].value,
+                password: aInputs[1].value,
+                repassword: aInputs[2].value,
+                createtime: new Date().getTime(),
+            },
+        })
+        .then((res) => {
+            var obj = JSON.parse(res);
+
+            if(obj.code){
+                oAlert.className = 'alert alert-danger';
+            }else{
+                oAlert.className = 'alert alert-success';
+                setTimeout(() => {
+                    location.assign("denglv.html");
+                }, 500);
+            }
+            oAlert.style.display = 'block';
+            oAlert.innerHTML = obj.msg;
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+    };
+</script>
+</html>

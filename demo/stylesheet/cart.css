@@ -59,9 +59,7 @@ body{
     align-items: center;
 
 }
-.topnav .right a{
-    
-}
+
 .topnav a{
     color: #b0b0b0;
 }
@@ -302,6 +300,81 @@ body{
     margin-left: 10px;
     background: #cf1d1b;
     color: #fff;
+}
+.listbox{
+    background: #fafafa;
+}
+.listbox .list{
+    width: 1190px;
+    height: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+/* .listbox h1{
+    width: 1190px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 50px;
+    margin: 0 auto;
+} */
+.listfirst .shopbox .shop{
+    margin-right: 7px;
+    width: 290px;
+    height: 345px;
+    float: left;
+    background: #fff;
+    margin-bottom: 10px;
+}
+.listfirst .shop img{
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    display: block;
+}
+
+.listfirst .shop h4{
+    line-height: 40px;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+    padding: 0 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 500;
+}
+.listfirst .shop>span{
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.listfirst .shop p{
+    width: 100%;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+}
+.listfirst .shop p span{
+    color: red;
+}
+.listfirst .shop .sc_btn{
+    width: 100px;
+    height: 25px;
+    background-color: #cf1d1b;
+    border-radius: 3px;
+    margin: 0 auto;
+    color: #fff;
+    text-align: center;
+    
 }
 /* footer */
 .footerbox {

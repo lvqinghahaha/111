@@ -71,59 +71,7 @@ body{
 /* header */
 .headerbox{
     z-index: 2;
-    position: relative;
-}
-.header .side{
-    width: 120px;
-    height: 300px;
-    position: absolute;
-    background-color: #fff;
-    opacity: 0.8;
-    top: 75px;
-    left: 0px;
-}
-.header .side li{
-    height: 50px;
-    margin-top: 20px;
-    border-bottom: 1px solid #999;
-}
-.header .side li a{
-    color: black;
-}
-.header .side .one{
-    width: 1190px;
-    height: 300px;
-    background-color: #fff;
-    position: absolute;
-    top: 0px;
-    left: 120px;
-    display: none;
-
-}
-.header .side .two{
-    width: 1190px;
-    height: 300px;
-    background-color: #fff;
-    position: absolute;
-    top: 0px;
-    left: 120px;
-    display: none;
-
-}
-.header .side .aa:hover .one{
-    display: block;
-}
-.header .side .bb:hover .two{
-    display: block;
-}
-.header .side  img{
-    width: 100px;
-    height: 100px;
-    margin:50px 20px ;
-}
-.headerbox .bigone{
     box-shadow: 0 0 5px #ccc;
-
 }
 .header{
     position: relative;
@@ -160,14 +108,10 @@ body{
 .header .headernav ul a:hover{
     color: red;
 }
-.header .headernav:hover .navlistbox{
-    display: block;
-    transition:1s ;
-
-}
 .header .headersearch{
     width: 300px;
     height: 40px;
+    position: relative;
 
 }
 .header .headersearch .searchtext{
@@ -181,7 +125,7 @@ body{
 }
 .header .headersearch .searchbtn{
     position: absolute;
-    top: 16px;
+    top: 1px;
     right: 0px;
     width: 40px;
     height: 38px;
@@ -191,15 +135,10 @@ body{
     font-size: 20px;
     text-align: center;
 }
-.headerbox .navlistbox{
+.navlistbox{
     width: 1263px;
     height: 231px;
-    background-color: #fff;
     display: none;
-    position: absolute;
-    top: 75px;
-    left: -38px;
-
 }
 .navlistbox .navlist{
     position: relative;
@@ -226,13 +165,12 @@ body{
 }
 .navlistbox .navlist ul li div img{
     width: 130px;
-    height: 90px;
+    height: 100px;
     margin: 0 auto;
 }
 .navlistbox .navlist ul li .name a{
     color: #757575;
 }
-
 .navlistbox .navlist ul li .price{
     font-size: 14px;
     color: #cf211b;
@@ -317,63 +255,62 @@ body{
     cursor: pointer;
   }
 /* content */
-.contentbox{
+.listbox{
     background: #fafafa;
 }
-#content{
+.listbox .list{
     width: 1190px;
     height: 1100px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
 }
-#content h1{
-    margin-top: 30px;
-    width: 100%;
-    height: 40px;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 40px;
+.listbox h1{
+    width: 1190px;
+    height: 50px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 50px;
+    margin: 0 auto;
 }
-#content h1 a{
-    float: right;
-    font-size: 14px;
-    font-weight: normal;
-    color: #757575;
-}
-#content .left a{
-    float: left;
-}
-
-#content .right .shopbox{
+/* .listfirst{
     width: 227px;
     height: 284px;
+} */
+/* .listfirst .shopbox{
+    width: 290px;
+    height: 345px;
     float: left;
     background: #fff;
-    margin-left: 14px;
+    margin-bottom: 10px;
+} */
+.listfirst .shopbox .shop{
+    margin-right: 7px;
+    width: 290px;
+    height: 345px;
+    float: left;
+    background: #fff;
+    margin-bottom: 10px;
 }
-#content .shop:hover{
-    box-shadow: 10px 10px 20px #ccc;
-    transform:translateY(-5px);
-    transition: .5s;
+.listfirst .shop img{
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    display: block;
 }
-#content .shop img{
-    width: 100%;
-    height: 100%;
-}
-#content .shop h4{
-    width: 190px;
-    text-align: center;
+
+.listfirst .shop h4{
     line-height: 40px;
-    overflow: hidden;
+    text-align: center;
+    color: #333;
     font-size: 16px;
-    color: #222;
-    padding-left: 20px;
-    font-weight: 400;
+    padding: 0 20px;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-weight: 500;
 }
-#content .shop>span{
+.listfirst .shop>span{
     display: block;
     width: 90%;
     margin: 0 auto;
@@ -385,37 +322,24 @@ body{
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-#content .shop p{
+.listfirst .shop p{
     width: 100%;
     text-align: center;
     line-height: 30px;
     font-size: 14px;
 }
-#content .shop p span:nth-child(1){
+.listfirst .shop p span{
     color: red;
 }
-#content .shop p span:nth-child(2){
-    color: #999;
-    padding-left: 10px;
-    text-decoration: line-through;
-}
-.contentbottom{
-    width: 1190px;
-    height: 220px;
-    padding-bottom: 40px;
+.listfirst .shop .sc_btn{
+    width: 100px;
+    height: 25px;
+    background-color: #cf1d1b;
+    border-radius: 3px;
     margin: 0 auto;
-}
-.contentbottom h1{
-    width: 100%;
-    height: 40px;
-    font-weight: 600;
-    font-size: 22px;
-    line-height: 40px;
-    margin-top: 15px;
-}
-.contentbottom img{
-    width: 100%;
-    height: 180px;
+    color: #fff;
+    text-align: center;
+    
 }
 /* footer */
 .footerbox {

@@ -4,17 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="stylesheet/cart.css">
-    <script src="list.json"></script>
+    <link rel="stylesheet" href="stylesheet/list.css">
     <script src="jquery-1.11.3.js"></script>
     <script src="index.js"></script>
-    
+    <script src="list.json"></script>
+
     <script>
+        //内容数据导入
         $(function(){
-            sc_num();
-            // sc_msg();
-            //内容数据导入
-   
             $.ajax({
             type: 'get',
             url: "list.json",
@@ -39,63 +36,11 @@
                 </div>
         `
             }
-            $(".listbox .list").html(str);
+            $(".list").html(str);
         },error: function(msg){
                 console.log(msg);}
             })
-    
-        $(".listbox .list").on("click", '.sc_btn', function(){
-            var id = this.id; //点击按钮的这个商品的id
-            //1、判定是否是第一次添加
-            var first = $.cookie("goods") == null ? true : false;
-            if(first){
-            var arr = [{id:id,num:1}];
-            $.cookie("goods", JSON.stringify(arr), {
-                expires: 7
-            })
-            }else{
-            //不是第一次，判定之前是否添加过
-            var same = false; //假设之前没添加过
-            var cookieArr = JSON.parse($.cookie("goods"));
-            for(var i = 0; i < cookieArr.length; i++){
-                if(cookieArr[i].id === id){
-                cookieArr[i].num++;
-                same = true;
-                break;
-                }
-            }
-
-            if(!same){
-                var obj = {id: id, num: 1};
-                cookieArr.push(obj);
-            }
-
-            $.cookie("goods", JSON.stringify(cookieArr), {
-                expires: 7
-            })
-            }
-            console.log($.cookie("goods"));
-            sc_num();
-            sc_msg();
-        })
-
-
-        function sc_num(){
-        var cookieStr = $.cookie("goods");
-        var sum = 0;
-        if(cookieStr){
-          var cookieArr = JSON.parse(cookieStr);
-          for(var i = 0; i < cookieArr.length; i++){
-            sum += cookieArr[i].num;
-          }
-        }
-        $(".right .sc_num").html(sum);
-      }
     })
-           
-	    
-
-
     </script>
 </head>
 <body>
@@ -111,9 +56,7 @@
                 <a href="">加入坚果</a>
             </div>
             <div class = "right">
-                <a href="">购物车</a>
-                <a href="" class="sc_num">0</a>
-
+                <a href="">购物车（0）</a>
             </div>
             <div class = "rightone">
                 <a href="">登录</a>
@@ -133,7 +76,7 @@
             </div>
             <div class="headernav">
                 <ul>
-                    <li><a href="">家庭投影</a></li>
+                    <li><a href="" class="headernava">家庭投影</a></li>
                     <li><a href="">移动投影</a></li>
                     <li><a href="">激光电视</a></li>
                     <li><a href="">行业定制</a></li>
@@ -185,50 +128,70 @@
             </ul>
         </div>
     </div>
-    <!-- content -->
-    <div class="box">
-       <div class="content">
-            <h3>我的购物车</h3>
-            <table>
-                <tbody>
-                    <tr class="head">
-                        <td>商品</td>
-                        <td>单价</td>
-                        <td>数量</td>
-                        <td>优惠</td>
-                        <td>小计</td>
-                        <td>操作</td>
-                    </tr>
-                    <tr class="body">
-                        <td>
-                            <img src="images/v10.jpg" alt="">
-                            <a href="">坚果V10</a>
-                        </td>
-                        <td>¥6999.00元</td>
-                        <td>
-                            <div class="quantity">
-                                <div class="reduce">-</div>
-                                <div class="add">+</div>
-                                <div>1</div>
-                            </div>
-                        </td>
-                        <td>无</td>
-                        <td>¥6999.00元</td>
-                        <td><a href="">删除</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="btn">
-                <a href="">去结算</a>
-                <a href="">继续购物</a>
+    <div class="bannerbox">
+        <!-- banner -->
+        <div class="banner" id="banner">
+            <ul>
+                <li>
+                    <a href="">
+                        <img src="images/img_5d12161e5a986.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5ede25c52d40d.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5cecfedf1c93e.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5cd3f9fc0916d.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5e58ebf04fd6b.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5e58eb98b65f1.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5d12161e5a986.jpg" alt="">
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="images/img_5ede25c52d40d.jpg" alt="">
+                    </a>
+                </li>
+            </ul>
+            <div class="dots">
+                <span class="active"></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
-       </div>
+            <div class="left"><</div>
+            <div class="right">></div>
+        </div>
     </div>
+    <!-- content -->
     <div class="listbox">
         
+        <h1>激光电视</h1>
         <div class="list">   
-            <!-- <div class="listfirst">
-                <a href="" class="listfirst">
+            <div class="listfirst">
+                <a href="" class="shopbox">
                     <div class="shop">
                         <img src="images/img_5c9b3891c1061.jpg" alt="">
                         <h4>电视名</h4>
@@ -236,12 +199,10 @@
                         <p>
                             <span>现价</span>
                         </p>
-                        <div class="sc">
-                            <div id="0" class="sc_btn">加入购物车</div>
-                        </div>
+                        <button>加入购物车</button>
                     </div>
                 </a>
-            </div> -->
+            </div>
         </div>
     </div>
     <!-- footer -->

@@ -261,7 +261,7 @@ body{
     text-align: center;
     border-right: 1px solid #C9CACA;
 }
-.quantity div{
+.quantity button{
     text-align: center;
     background: #FFF;
     height: 30px;

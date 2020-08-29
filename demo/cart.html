@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="stylesheet/cart.css">
-    <script src="list.json"></script>
-    <script src="jquery-1.11.3.js"></script>
-    <script src="index.js"></script>
+    <script type = "text/javascript" src="jquery-1.11.3.js"></script>
+    <script type = "text/javascript" src="jquery.cookie.js"></script>
+
+    <!-- <script src="index.js"></script> -->
     
     <script>
         $(function(){
             sc_num();
-            // sc_msg();
+            sc_msg();
             //内容数据导入
    
             $.ajax({
@@ -23,7 +24,7 @@
             for(var i = 0; i < arr.length; i++){
                 str +=  `
                 <div class="listfirst">
-                    <a href="" class="shopbox">
+                    <a href="#" class="shopbox">
                         <div class="shop">
                                 <img src="${arr[i].img}" alt="">
                                 <h4>${arr[i].title}</h4>
@@ -32,7 +33,7 @@
                                     <span>${arr[i].price}</span>
                                 </p>
                                 <div class="sc">
-                                    <div id="0" class="sc_btn">加入购物车</div>
+                                    <div id="${arr[i].id}" class="sc_btn">加入购物车</div>
                                 </div>
                         </div>
                     </a>
@@ -46,12 +47,13 @@
     
         $(".listbox .list").on("click", '.sc_btn', function(){
             var id = this.id; //点击按钮的这个商品的id
+           
             //1、判定是否是第一次添加
             var first = $.cookie("goods") == null ? true : false;
             if(first){
             var arr = [{id:id,num:1}];
             $.cookie("goods", JSON.stringify(arr), {
-                expires: 7
+                expires: 1
             })
             }else{
             //不是第一次，判定之前是否添加过
@@ -71,7 +73,7 @@
             }
 
             $.cookie("goods", JSON.stringify(cookieArr), {
-                expires: 7
+                expires: 1
             })
             }
             console.log($.cookie("goods"));
@@ -79,17 +81,112 @@
             sc_msg();
         })
 
+        //通过事件委托给右侧购物车商品添加事件委托
+        $("tbody .body").on("click", ".delect", function(){
+        //1、页面上删除
+        var id = $(this).closest(".body").remove().attr("id");
+        //2、通过cookie删除
+        var cookieArr = JSON.parse($.cookie("goods"));
+        var index = cookieArr.findIndex(item => item.id == id);
+        //删除
+        cookieArr.splice(index, 1);
+        if(cookieArr.length){
+          $.cookie("goods", JSON.stringify(cookieArr), {
+            expires: 1
+          })
+        }else{
+          $.cookie("goods", null);
+        }
+        sc_num();
+        sc_msg();
+      })
 
+      //给+和-添加事件
+      $("tbody .body").on("click", '.quantity button', function(){
+
+        var id = $(this).closest(".quantity").attr("id");
+        //从cookie中找出这个id的数据
+        var cookieArr = JSON.parse($.cookie("goods"));
+        var index = cookieArr.findIndex(item => item.id == id);
+
+        if(this.innerHTML == "+"){
+          cookieArr[index].num++;
+        }else{
+          cookieArr[index].num == 1 ? alert("数量为1，不能减少") : cookieArr[index].num--;
+        }
+        //改变页面上的数量
+        $(this).siblings("span").html(cookieArr[index].num);
+        //将改变完成数量的cookie存储回去
+        $.cookie("goods", JSON.stringify(cookieArr), {
+          expires: 7
+        })
+        sc_num();
+        sc_msg();
+
+      })
         function sc_num(){
         var cookieStr = $.cookie("goods");
         var sum = 0;
         if(cookieStr){
           var cookieArr = JSON.parse(cookieStr);
-          for(var i = 0; i < cookieArr.length; i++){
+          for(var i = 1; i < cookieArr.length; i++){
             sum += cookieArr[i].num;
           }
         }
         $(".right .sc_num").html(sum);
+      }
+      function sc_msg(){
+        var cookieStr = $.cookie("goods");
+        if(!cookieStr){
+          return;
+        }
+        //1、请求商品数据
+        $.ajax({
+          type: 'get',
+          url: 'list.json',
+          success: function(arr){
+            //在cookie中取出数据
+            var newArr = []
+            var cookieArr = JSON.parse(cookieStr);
+            for(var i = 0; i < cookieArr.length; i++){
+              for(var j = 0; j < arr.length; j++){
+                if(arr[j].id == cookieArr[i].id){
+                  arr[j].num = cookieArr[i].num;
+                  newArr.push(arr[j]);
+                  break;
+                }
+              }
+            }
+            console.log(newArr);
+            let str = ``;
+            for(var i = 0; i < newArr.length; i++){
+                
+              str += `<td id="0">
+                            <img src="${newArr[i].img}" alt="">
+                            <a href="">${newArr[i].title}</a>
+                        </td>
+                        <td>${newArr[i].price}</td>
+                        <td>
+                            <div class="quantity" id="${newArr[i].id}">
+                                <button class="reduce">-</button>
+                                <button class="add">+</button>
+                                <span>${newArr[i].num}</span>
+                            </div>
+                        </td>
+                        <td>无</td>
+                        <td>${newArr[i].price * newArr[i].num}</td>
+                        <td><a href="#" class="delect">删除</a></td>`
+                        
+                
+            }
+            
+            $("tbody .body").html(str);
+            
+          }
+
+          
+
+        })
       }
     })
            
@@ -200,21 +297,21 @@
                         <td>操作</td>
                     </tr>
                     <tr class="body">
-                        <td>
+                        <!-- <td id="0">
                             <img src="images/v10.jpg" alt="">
-                            <a href="">坚果V10</a>
+                            <a href="#">坚果V10</a>
                         </td>
                         <td>¥6999.00元</td>
                         <td>
-                            <div class="quantity">
-                                <div class="reduce">-</div>
-                                <div class="add">+</div>
-                                <div>1</div>
+                            <div class="quantity" id="3">
+                                <button class="reduce">-</button>
+                                <button class="add">+</button>
+                                <span>1</span>
                             </div>
                         </td>
                         <td>无</td>
                         <td>¥6999.00元</td>
-                        <td><a href="">删除</a></td>
+                        <td><a href="#" class="delect">删除</a></td> -->
                     </tr>
                 </tbody>
             </table>
@@ -225,10 +322,9 @@
        </div>
     </div>
     <div class="listbox">
-        
-        <div class="list">   
+        <ul class="list">   
             <!-- <div class="listfirst">
-                <a href="" class="listfirst">
+                <a href="#" class="listfirst">
                     <div class="shop">
                         <img src="images/img_5c9b3891c1061.jpg" alt="">
                         <h4>电视名</h4>
@@ -241,8 +337,8 @@
                         </div>
                     </div>
                 </a>
-            </div> -->
-        </div>
+            </div>  -->
+        </ul>
     </div>
     <!-- footer -->
     <div class="footerbox">
